@@ -2,7 +2,7 @@
 echo -e "\n== init =="
 git init
 git add .
-git commit -m "实现 React Hash 路由"
+git commit -m "first commit"
 echo -e "== init end ==\n"
 
 git remote add github git@github.com:uphg/react-router-demo.git
