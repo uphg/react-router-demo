@@ -1,23 +1,50 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
+function About () {
+  return(
+    <div>我是关于页</div>
+  )
+}
+
+function User () {
+  return(
+    <div>我是用户页</div>
+  )
+}
+
+function Home () {
+  return(
+    <div>我是首页</div>
+  )
+}
+
 function App() {
+  const [hash, setHash] = useState(window.location.hash)
+  const clickLink = (link) => {
+    setHash(link)
+    window.location.hash = link
+  }
+
+  const loadingPage = (path) => {
+    if (path === '#/') {
+      return <Home />
+    } else if (path === '#/user') {
+      return <User />
+    } else if (path === '#/about') {
+      return <About />
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <button onClick={() => { clickLink('#/') }}>首页</button>
+        <button onClick={() => { clickLink('#/user') }}>用户</button>
+        <button onClick={() => { clickLink('#/about') }}>关于</button>
       </header>
+      <main>
+        {loadingPage(hash)}
+      </main>
     </div>
   );
 }
