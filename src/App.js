@@ -8,23 +8,9 @@ import {
 
 import './App.css';
 
-function About() {
-  return (
-    <div>我是关于页</div>
-  )
-}
-
-function User() {
-  return (
-    <div>我是用户页</div>
-  )
-}
-
-function Home() {
-  return (
-    <div>我是首页</div>
-  )
-}
+const About = () => <div>我是关于页</div>
+const User = () => <div>我是用户页</div>
+const Home = () => <div>我是首页</div>
 
 function App() {
   return (
